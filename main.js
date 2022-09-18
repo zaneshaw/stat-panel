@@ -80,10 +80,10 @@ stats.memory = {
 stats.network = {
   data: async () => {
     const iData = await si.networkInterfaces();
-    const iLatData = await si.inetLatency();
+    // const iLatData = await si.inetLatency();
 
     const data = {};
-    data.latency = iLatData;
+    // data.latency = iLatData;
     data.publicIP = await (async () => {
       const res = await fetch("https://api.ipify.org?format=json");
       const data = await res.json();
