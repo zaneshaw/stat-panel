@@ -13,11 +13,24 @@ server.listen(port, hostname, () => {
   console.debug(`Server running at http://${hostname}:${port}/`);
 });
 
-app.get("/", async (req, res) => {
-  console.debug("GET request on '/'");
+app.use(express.static("public"));
 
-  const data = await stats.getData();
-  res.send(`<pre>${JSON.stringify(data, null, 2)}</pre>`);
+app.get("/stats", async (req, res) => {
+  res.json(await stats.getData());
+});
+
+app.get("/stats/:slug", async (req, res) => {
+  // res.json(await stats.cpu.data());
+  const stat = req.params.slug;
+
+  let data = {};
+  if (stats.hasOwnProperty(stat)) {
+    if (stats[stat].data) {
+      data = await stats[stat].data();
+      return res.json(data);
+    }
+  }
+  res.status(404).send(`<pre>Stat '${stat}' doesn't exist!</pre>`);
 });
 
 stats.getData = async () => {
