@@ -1,7 +1,17 @@
 {
+  "scripts": {
+    "build:css": "postcss src/*.css --dir ./public/ --ext",
+    "dev:css": "NODE_ENV=development TAILWIND_MODE=watch postcss src/*.css --dir ./public/ --watch --ext"
+  },
   "dependencies": {
     "express": "^4.18.1",
     "socket.io": "^4.5.2",
     "systeminformation": "^5.12.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.11",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.1.8"
   }
 }
