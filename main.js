@@ -1,6 +1,7 @@
 const http = require("http");
 const express = require("express");
 const si = require("systeminformation");
+const path = require("path");
 
 const app = express();
 const server = http.createServer(app);
@@ -13,7 +14,7 @@ server.listen(port, hostname, () => {
   console.debug(`Server running at http://${hostname}:${port}/`);
 });
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/stats", async (req, res) => {
   res.json(await stats.getData());
