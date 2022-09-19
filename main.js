@@ -34,6 +34,24 @@ app.get("/stats/:slug", async (req, res) => {
   res.status(404).send(`<pre>Stat '${stat}' doesn't exist!</pre>`);
 });
 
+stats.values = {
+  cpu: {
+    cpu: "manufacturer, brand, hysicalCores, cores, speedMax",
+    cpuCurrentSpeed: "avg",
+    cpuTemperature: "main"
+  },
+  memory: {
+    mem: "total, active"
+  },
+  network: {
+    networkInterfaces: "iface, ip4, speed, type"
+  },
+  storage: {
+    diskLayout: "name",
+    fsSize: "fs, size, used"
+  }
+}
+
 stats.getData = async () => {
   const data = {
     cpu: await stats.cpu.data(),
@@ -46,59 +64,35 @@ stats.getData = async () => {
 
 stats.cpu = {
   data: async () => {
-    const cpuData = await si.cpu();
-    const cpuSpeedData = await si.cpuCurrentSpeed();
-    const cpuTempData = await si.cpuTemperature();
+    const cpuData = await si.get(stats.values.cpu);
 
-    const data = {
-      manufacturer: cpuData.manufacturer,
-      brand: cpuData.brand,
-      cores: cpuData.physicalCores,
-      threads: cpuData.cores,
-      maxSpeed: cpuData.speedMax,
-      speed: cpuSpeedData.avg,
-      temp: cpuTempData?.main
-    };
-
-    return data;
+    return Object.assign({}, ...Object.values(cpuData));
   }
 }
 
 stats.memory = {
   data: async () => {
-    const memData = await si.mem();
-    const memLayoutData = await si.memLayout();
+    const memData = await si.get(stats.values.memory);
 
-    const data = {
-      size: memData.total,
-      used: memData.active
-    };
-
-    return data;
+    return Object.assign({}, ...Object.values(memData));
   }
 }
 
 stats.network = {
   data: async () => {
-    const iData = await si.networkInterfaces();
-    // const iLatData = await si.inetLatency();
-
     const data = {};
-    // data.latency = iLatData;
     data.publicIP = await (async () => {
       const res = await fetch("https://api.ipify.org?format=json");
       const data = await res.json();
 
       return data.ip;
     })();
-    data.interfaces = iData.map((_, i) => {
-      return obj = {
-        name: iData[i].iface,
-        ip: iData[i].ip4,
-        speed: iData[i].speed,
-        type: iData[i].type
-      }
-    });
+    data.interfaces = await (async () => {
+      const data = await si.get(stats.values.network);
+
+      return Object.assign([], ...Object.values(data));
+    })();
+
 
     return data;
   }
@@ -106,20 +100,13 @@ stats.network = {
 
 stats.storage = {
   data: async () => {
-    const fsData = await si.fsSize();
-    const diskData = await si.diskLayout();
+    const storageData = await si.get(stats.values.storage);
+    const joined = storageData[Object.keys(storageData)[0]]
+      .concat(
+        storageData[Object.keys(storageData)[1]]
+      );
 
-    const data = {};
-    data.devices = fsData.map((_, i) => {
-      return obj = {
-        name: diskData[i].name,
-        path: fsData[i].fs,
-        size: fsData[i].size,
-        used: fsData[i].used
-      }
-    });
-
-    return data;
+    return { devices: [Object.assign({}, joined[0], joined[1])] };
   }
 }
 
