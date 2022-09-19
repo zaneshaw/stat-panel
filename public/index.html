@@ -5,11 +5,47 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Document</title>
-		<script src="app.js" defer></script>
 		<link rel="stylesheet" href="./style.css">
+		<script src="app.js" defer></script>
 	</head>
-	<body class="m-4">
-		<span id="response-time"></span>
-		<pre id="debug" class="bg-neutral-200 rounded">Loading...</pre>
+	<body class="m-4 text-neutral-50 bg-neutral-800">
+		<div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
+			<div class="bg-neutral-900 rounded-xl">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">CPU</h4>
+					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-cpu">-</span></h4>
+				</div>
+				<div class="p-5">
+					<pre id="debug-cpu">Loading...</pre>
+				</div>
+			</div>
+			<div class="bg-neutral-900 rounded-xl">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">Memory</h4>
+					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-memory">-</span></h4>
+				</div>
+				<div class="p-5">
+					<pre id="debug-memory">Loading...</pre>
+				</div>
+			</div>
+			<div class="bg-neutral-900 rounded-xl">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">Storage</h4>
+					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-storage">-</span></h4>
+				</div>
+				<div class="p-5">
+					<pre id="debug-storage">Loading...</pre>
+				</div>
+			</div>
+			<div class="bg-neutral-900 rounded-xl">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">Network</h4>
+					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-network">-</span></h4>
+				</div>
+				<div class="p-5">
+					<pre id="debug-network">Loading...</pre>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
