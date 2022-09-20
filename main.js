@@ -11,7 +11,8 @@ const port = 3000;
 const stats = {};
 
 server.listen(port, hostname, () => {
-  console.debug(`Server running at http://${hostname}:${port}/`);
+  console.debug(`Server running!`);
+  console.debug(`Local network: http://localhost:${port}/`);
 });
 
 app.use(express.static(path.join(__dirname, "public")));
