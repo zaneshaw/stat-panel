@@ -1,8 +1,8 @@
 function init() {		
-	getStat("cpu");
-	getStat("memory");
-	getStat("storage");
-	getStat("network");
+	// getStat("cpu");
+	// getStat("memory");
+	// getStat("storage");
+	// getStat("network");
 }
 
 function getStat(stat) {
@@ -13,7 +13,7 @@ function getStat(stat) {
 			const end = window.performance.now();
 			const responseTime = end - start;
 
-			document.getElementById(`rt-${stat}`).innerText = `${(responseTime / 1000).toFixed(2)}s`
+			document.getElementById(`rt-${stat}`).innerText = `Loaded in ${(responseTime / 1000).toFixed(2)}s`
 			document.getElementById(`debug-${stat}`).innerText = JSON.stringify(data, 0, 2);
 
 			console.debug(data, responseTime);

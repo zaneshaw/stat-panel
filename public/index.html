@@ -10,40 +10,134 @@
 	</head>
 	<body class="m-4 text-neutral-50 bg-neutral-800">
 		<div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-			<div class="bg-neutral-900 rounded-xl">
-				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
-					<h4 class="text-md text-neutral-300 inline">CPU</h4>
-					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-cpu">-</span></h4>
-				</div>
-				<div class="p-5">
-					<pre id="debug-cpu">Loading...</pre>
-				</div>
-			</div>
-			<div class="bg-neutral-900 rounded-xl">
-				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
-					<h4 class="text-md text-neutral-300 inline">Memory</h4>
-					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-memory">-</span></h4>
-				</div>
-				<div class="p-5">
-					<pre id="debug-memory">Loading...</pre>
-				</div>
-			</div>
-			<div class="bg-neutral-900 rounded-xl">
+			<div class="bg-neutral-900 rounded-xl flex flex-col">
 				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
 					<h4 class="text-md text-neutral-300 inline">Storage</h4>
-					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-storage">-</span></h4>
+					<h4 class="text-md text-neutral-500 inline" id="rt-storage">Loading...</h4>
 				</div>
-				<div class="p-5">
-					<pre id="debug-storage">Loading...</pre>
+				<div class="p-6 flex flex-col gap-12 grow justify-between">
+					<div class="flex">
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">500</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Total</h4>
+						</div>
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">200</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Used</h4>
+						</div>
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">300</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Free</h4>
+						</div>
+					</div>
+					<div class="flex flex-col gap-2">
+						<div class="w-full bg-neutral-700 rounded-full h-3">
+							<div class="bg-blue-600 h-3 rounded-full w-[40%]"></div>
+						</div>
+						<div class="flex justify-between">
+							<h4 class="text-md text-neutral-500">Used</h4>
+							<h4 class="text-md text-blue-600 font-semibold">40.00%</h4>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="bg-neutral-900 rounded-xl">
+			<div class="bg-neutral-900 rounded-xl flex flex-col">
 				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
-					<h4 class="text-md text-neutral-300 inline">Network</h4>
-					<h4 class="text-md text-neutral-500 inline">Response time: <span id="rt-network">-</span></h4>
+					<h4 class="text-md text-neutral-300 inline">Memory</h4>
+					<h4 class="text-md text-neutral-500 inline" id="rt-memory">Loading...</h4>
 				</div>
-				<div class="p-5">
-					<pre id="debug-network">Loading...</pre>
+				<div class="p-6 flex flex-col gap-12 grow justify-between">
+					<div class="flex">
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">16</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Total</h4>
+						</div>
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">4.00</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Used</h4>
+						</div>
+						<div class="grow">
+							<h1 class="text-4xl font-semibold inline">12.00</h1>
+							<h2 class="text-xl inline">GB</h2>
+							<h4 class="text-md text-neutral-500 leading-4">Free</h4>
+						</div>
+					</div>
+					<div class="flex flex-col gap-2">
+						<div class="w-full bg-neutral-700 rounded-full h-3">
+							<div class="bg-blue-600 h-3 rounded-full w-[25%]"></div>
+						</div>
+						<div class="flex justify-between">
+							<h4 class="text-md text-neutral-500">Used</h4>
+							<h4 class="text-md text-blue-600 font-semibold">25.00%</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg-neutral-900 rounded-xl flex flex-col">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">CPU</h4>
+					<h4 class="text-md text-neutral-500 inline" id="rt-cpu">Loading...</h4>
+				</div>
+				<div class="p-6 flex flex-col gap-12 grow justify-between">
+					<div class="flex flex-col gap-6">
+						<div class="flex">
+							<div class="grow">
+								<h1 class="text-4xl font-semibold inline">4</h1>
+								<h2 class="text-xl inline">X</h2>
+								<h4 class="text-md text-neutral-500 leading-4">Cores</h4>
+							</div>
+							<div class="grow">
+								<h1 class="text-4xl font-semibold inline">8</h1>
+								<h2 class="text-xl inline">X</h2>
+								<h4 class="text-md text-neutral-500 leading-4">Threads</h4>
+							</div>
+						</div>
+						<div class="flex flex-col gap-2">
+							<div>
+								<h1 class="text-md font-semibold inline">Core™ i7-2860QM</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Brand</h4>
+							</div>
+							<div>
+								<h1 class="text-md font-semibold inline">Intel</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Manufacturer</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg-neutral-900 rounded-xl flex flex-col">
+				<div class="px-5 py-3 flex justify-between border-b border-neutral-700">
+					<h4 class="text-md text-neutral-300 inline">CPU</h4>
+					<h4 class="text-md text-neutral-500 inline" id="rt-cpu">Loading...</h4>
+				</div>
+				<div class="p-6 flex flex-col gap-12 grow justify-between">
+					<div class="flex flex-col gap-6">
+						<div class="flex">
+							<div class="grow">
+								<h1 class="text-4xl font-semibold inline">101.188.12.30</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Public</h4>
+							</div>
+							<div class="grow">
+								<h1 class="text-4xl font-semibold inline">192.168.0.39</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Private</h4>
+							</div>
+						</div>
+						<div class="flex flex-col gap-2">
+							<div>
+								<h1 class="text-md font-semibold inline">eno1</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Name</h4>
+							</div>
+							<div>
+								<h1 class="text-md font-semibold inline">Wired</h1>
+								<h4 class="text-md text-neutral-500 leading-4">Connection</h4>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
