@@ -76,7 +76,7 @@ function setNetwork(data, i = null) {
 
 	document.getElementById("network-public").innerText = data.values.publicIP;
 	document.getElementById("network-private").innerText = interface.ip4;
-	document.getElementById("network-name").innerText = interface.iface;
+	document.getElementById("network-name").innerText = interface.ifaceName;
 	document.getElementById("network-type").innerText = interface.type.charAt(0).toUpperCase() + interface.type.slice(1);
 }
 
