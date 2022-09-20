@@ -18,28 +18,28 @@
 				<div class="p-6 flex flex-col gap-12 grow justify-between">
 					<div class="flex">
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">500</h1>
+							<h1 class="text-4xl font-semibold inline" id="storage-total">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Total</h4>
 						</div>
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">200</h1>
+							<h1 class="text-4xl font-semibold inline" id="storage-used">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Used</h4>
 						</div>
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">300</h1>
+							<h1 class="text-4xl font-semibold inline" id="storage-free">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Free</h4>
 						</div>
 					</div>
 					<div class="flex flex-col gap-2">
 						<div class="w-full bg-neutral-700 rounded-full h-3">
-							<div class="bg-blue-600 h-3 rounded-full w-[40%]"></div>
+							<div class="w-0 h-3 bg-blue-600 rounded-full" id="storage-percent"></div>
 						</div>
 						<div class="flex justify-between">
 							<h4 class="text-md text-neutral-500">Used</h4>
-							<h4 class="text-md text-blue-600 font-semibold">40.00%</h4>
+							<h4 class="text-md text-blue-600 font-semibold" id="storage-percent-label">-</h4>
 						</div>
 					</div>
 				</div>
@@ -52,28 +52,28 @@
 				<div class="p-6 flex flex-col gap-12 grow justify-between">
 					<div class="flex">
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">16</h1>
+							<h1 class="text-4xl font-semibold inline" id="memory-total">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Total</h4>
 						</div>
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">4.00</h1>
+							<h1 class="text-4xl font-semibold inline" id="memory-used">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Used</h4>
 						</div>
 						<div class="grow">
-							<h1 class="text-4xl font-semibold inline">12.00</h1>
+							<h1 class="text-4xl font-semibold inline" id="memory-free">-</h1>
 							<h2 class="text-xl inline">GB</h2>
 							<h4 class="text-md text-neutral-500 leading-4">Free</h4>
 						</div>
 					</div>
 					<div class="flex flex-col gap-2">
 						<div class="w-full bg-neutral-700 rounded-full h-3">
-							<div class="bg-blue-600 h-3 rounded-full w-[25%]"></div>
+							<div class="w-0 h-3 bg-blue-600 rounded-full" id="memory-percent"></div>
 						</div>
 						<div class="flex justify-between">
 							<h4 class="text-md text-neutral-500">Used</h4>
-							<h4 class="text-md text-blue-600 font-semibold">25.00%</h4>
+							<h4 class="text-md text-blue-600 font-semibold" id="memory-percent-label">25.00%</h4>
 						</div>
 					</div>
 				</div>
@@ -87,23 +87,23 @@
 					<div class="flex flex-col gap-6">
 						<div class="flex">
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline">4</h1>
+								<h1 class="text-4xl font-semibold inline" id="cpu-cores">-</h1>
 								<h2 class="text-xl inline">X</h2>
 								<h4 class="text-md text-neutral-500 leading-4">Cores</h4>
 							</div>
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline">8</h1>
+								<h1 class="text-4xl font-semibold inline" id="cpu-threads">-</h1>
 								<h2 class="text-xl inline">X</h2>
 								<h4 class="text-md text-neutral-500 leading-4">Threads</h4>
 							</div>
 						</div>
 						<div class="flex flex-col gap-2">
 							<div>
-								<h1 class="text-md font-semibold inline">Core™ i7-2860QM</h1>
+								<h1 class="text-md font-semibold inline" id="cpu-brand">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Brand</h4>
 							</div>
 							<div>
-								<h1 class="text-md font-semibold inline">Intel</h1>
+								<h1 class="text-md font-semibold inline" id="cpu-manufacturer">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Manufacturer</h4>
 							</div>
 						</div>
@@ -119,21 +119,21 @@
 					<div class="flex flex-col gap-6">
 						<div class="flex">
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline">101.188.12.30</h1>
+								<h1 class="text-4xl font-semibold inline" id="network-public">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Public</h4>
 							</div>
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline">192.168.0.39</h1>
+								<h1 class="text-4xl font-semibold inline" id="network-private">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Private</h4>
 							</div>
 						</div>
 						<div class="flex flex-col gap-2">
 							<div>
-								<h1 class="text-md font-semibold inline">eno1</h1>
+								<h1 class="text-md font-semibold inline" id="network-name">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Name</h4>
 							</div>
 							<div>
-								<h1 class="text-md font-semibold inline">Wired</h1>
+								<h1 class="text-md font-semibold inline" id="network-type">-</h1>
 								<h4 class="text-md text-neutral-500 leading-4">Connection</h4>
 							</div>
 						</div>
