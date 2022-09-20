@@ -66,7 +66,7 @@ function setNetwork(data, i = null) {
 
 	const interfaces = data.values.interfaces;
 	document.getElementById("network-radio").innerHTML = null;
-	interfaces.forEach((interface, index) => {
+	interfaces.forEach((_, index) => {
 		document.getElementById("network-radio").innerHTML +=
 			`<div onclick="changeNetworkInterface(${index})" class="py-1 px-3 bg-neutral-800 border-2 border-neutral-700 rounded-md cursor-pointer${index === i ? " radio-active" : ""}">${index + 1}</div>`;
 	});

@@ -4,6 +4,6 @@
 
 @layer components {
   .radio-active {
-    @apply !bg-neutral-700 !border-blue-700 !border-[3px] !py-[3px] !px-[11px];
+    @apply !bg-neutral-700 !border-blue-600 !border-[3px] !py-[3px] !px-[11px];
   }
 }
