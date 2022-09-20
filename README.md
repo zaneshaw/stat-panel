@@ -14,6 +14,7 @@ A NodeJS web server for monitoring basic system information in a clean, readable
 - [ ] Copy button icon (private/public ip)
 
 ## Installation
+Optionally, you can download the pre-compiled release
 ### Clone repository
 ```
 git clone https://github.com/squidee100/stat-panel.git
@@ -26,6 +27,11 @@ npm install
 or
 ```
 yarn install
+```
+
+### Build styles
+```
+npm run build:css
 ```
 
 ## Usage
