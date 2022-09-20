@@ -44,7 +44,7 @@ stats.values = {
     mem: "total, active, available"
   },
   network: {
-    networkInterfaces: "iface, ip4, speed, type"
+    networkInterfaces: "iface, ip4, speed, type, default"
   },
   storage: {
     diskLayout: "name",

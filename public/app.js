@@ -55,7 +55,13 @@ function setCPU(data) {
 	document.getElementById("cpu-manufacturer").innerText = data.values.manufacturer;
 }
 
-function setNetwork(data, i = 0) {
+function setNetwork(data, i = null) {
+	if (i === null) {
+		i = data.values.interfaces.findIndex((obj) => {
+			return obj.default;
+		});
+	}
+
 	const interface = data.values.interfaces[i];
 
 	const interfaces = data.values.interfaces;
