@@ -36,19 +36,19 @@ app.get("/stats/:slug", async (req, res) => {
 
 stats.values = {
   cpu: {
-    cpu: "manufacturer, brand, hysicalCores, cores, speedMax",
+    cpu: "manufacturer, brand, physicalCores, cores, speedMax",
     cpuCurrentSpeed: "avg",
     cpuTemperature: "main"
   },
   memory: {
-    mem: "total, active"
+    mem: "total, active, available"
   },
   network: {
     networkInterfaces: "iface, ip4, speed, type"
   },
   storage: {
     diskLayout: "name",
-    fsSize: "fs, size, used"
+    fsSize: "fs, size, used, available"
   }
 }
 
