@@ -2,6 +2,7 @@
 A NodeJS web server for monitoring basic system information in a clean, readable format
 
 ## Roadmap
+- [ ] Skeleton loading
 - [ ] Compiled version
 - [ ] Basic system information (system, os, etc)
 - [ ] Battery information
