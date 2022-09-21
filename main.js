@@ -48,7 +48,7 @@ stats.values = {
     networkInterfaces: "ifaceName, ip4, speed, type, default"
   },
   storage: {
-    diskLayout: "name",
+    diskLayout: "name, vendor",
     fsSize: "fs, size, used, available"
   }
 }
@@ -102,12 +102,16 @@ stats.network = {
 stats.storage = {
   data: async () => {
     const storageData = await si.get(stats.values.storage);
-    const joined = storageData[Object.keys(storageData)[0]]
-      .concat(
-        storageData[Object.keys(storageData)[1]]
-      );
 
-    return { devices: [Object.assign({}, joined[0], joined[1])] };
+    const joined = [];
+    storageData.diskLayout.forEach((_, index) => {
+      joined.push({
+        ...storageData.diskLayout[index],
+        ...storageData.fsSize[index]
+      });
+    });
+
+    return { devices: joined };
   }
 }
 

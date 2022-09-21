@@ -26,6 +26,8 @@ function setStorage(data) {
 	document.getElementById("storage-total").innerText = b2GB(device.size);
 	document.getElementById("storage-used").innerText = b2GB(device.used);
 	document.getElementById("storage-free").innerText = b2GB(device.available);
+	document.getElementById("storage-name").innerText = `${device.name} (${device.vendor})`;
+	document.getElementById("storage-fs").innerText = device.fs;
 
 	const percent = ((device.used / device.size) * 100).toFixed(2);
 	document.getElementById("storage-percent").style.width = `${percent}%`;
