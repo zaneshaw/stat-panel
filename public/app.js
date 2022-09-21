@@ -1,8 +1,8 @@
 async function init() {
-	setStorage(await getStat("storage"));
-	setMemory(await getStat("memory"));
-	setCPU(await getStat("cpu"));
-	setNetwork(await getStat("network"));
+	setStorage("storage");
+	setMemory("memory");
+	setCPU("cpu");
+	setNetwork("network");
 }
 
 async function getStat(stat) {
@@ -17,9 +17,9 @@ async function getStat(stat) {
 	return { values: data, rt: responseTime };
 }
 
-function setStorage(data) {
+async function setStorage(stat) {
+	const data = await getStat(stat)
 	const device = data.values.devices[0];
-
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-storage").innerText = `Loaded in ${rt}s`;
 
@@ -34,7 +34,8 @@ function setStorage(data) {
 	document.getElementById("storage-percent-label").innerText = `${percent}%`;
 }
 
-function setMemory(data) {
+async function setMemory(stat) {
+	const data = await getStat(stat);
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-memory").innerText = `Loaded in ${rt}s`;
 
@@ -47,7 +48,8 @@ function setMemory(data) {
 	document.getElementById("memory-percent-label").innerText = `${percent}%`;
 }
 
-function setCPU(data) {
+async function setCPU(stat) {
+	const data = await getStat(stat);
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-cpu").innerText = `Loaded in ${rt}s`;
 
@@ -57,7 +59,9 @@ function setCPU(data) {
 	document.getElementById("cpu-manufacturer").innerText = data.values.manufacturer;
 }
 
-function setNetwork(data, i = null) {
+async function setNetwork(stat, i = null) {
+	const data = await getStat(stat);
+
 	if (i === null) {
 		i = data.values.interfaces.findIndex((obj) => {
 			return obj.default;
