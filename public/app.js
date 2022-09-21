@@ -1,8 +1,8 @@
 async function init() {
-	setStorage("storage");
-	setMemory("memory");
-	setCPU("cpu");
-	setNetwork("network");
+	setStorage();
+	setMemory();
+	setCPU();
+	setNetwork();
 }
 
 async function getStat(stat) {
@@ -17,8 +17,8 @@ async function getStat(stat) {
 	return { values: data, rt: responseTime };
 }
 
-async function setStorage(stat) {
-	const data = await getStat(stat)
+async function setStorage() {
+	const data = await getStat("storage");
 	const device = data.values.devices[0];
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-storage").innerText = `Loaded in ${rt}s`;
@@ -34,8 +34,8 @@ async function setStorage(stat) {
 	document.getElementById("storage-percent-label").innerText = `${percent}%`;
 }
 
-async function setMemory(stat) {
-	const data = await getStat(stat);
+async function setMemory() {
+	const data = await getStat("memory");
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-memory").innerText = `Loaded in ${rt}s`;
 
@@ -48,8 +48,8 @@ async function setMemory(stat) {
 	document.getElementById("memory-percent-label").innerText = `${percent}%`;
 }
 
-async function setCPU(stat) {
-	const data = await getStat(stat);
+async function setCPU() {
+	const data = await getStat("cpu");
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-cpu").innerText = `Loaded in ${rt}s`;
 
@@ -59,8 +59,8 @@ async function setCPU(stat) {
 	document.getElementById("cpu-manufacturer").innerText = data.values.manufacturer;
 }
 
-async function setNetwork(stat, i = null) {
-	const data = await getStat(stat);
+async function setNetwork(i = null) {
+	const data = await getStat("network");
 
 	if (i === null) {
 		i = data.values.interfaces.findIndex((obj) => {
@@ -83,11 +83,11 @@ async function setNetwork(stat, i = null) {
 	document.getElementById("network-public").innerText = data.values.publicIP;
 	document.getElementById("network-private").innerText = interface.ip4;
 	document.getElementById("network-name").innerText = interface.ifaceName;
-	document.getElementById("network-type").innerText = interface.type.charAt(0).toUpperCase() + interface.type.slice(1);
+	document.getElementById("network-type").innerText = interface.type.charAt(0).toUpperCase() + interface.type.slice(1) || "Unknown";
 }
 
 async function changeNetworkInterface(i) {
-	setNetwork(await getStat("network"), i);
+	setNetwork(i);
 }
 
 function b2GB(B) {
