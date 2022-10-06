@@ -3,9 +3,11 @@ import express from "express";
 import si from "systeminformation";
 import path from "path";
 import fetch from "node-fetch";
+import * as url from "url";
 
 const app = express();
 const server = http.createServer(app);
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const hostname = "0.0.0.0";
 const port = 3000;
