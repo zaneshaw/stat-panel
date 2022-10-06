@@ -2,6 +2,7 @@ import http from "http";
 import express from "express";
 import si from "systeminformation";
 import path from "path";
+import fetch from "node-fetch";
 
 const app = express();
 const server = http.createServer(app);
