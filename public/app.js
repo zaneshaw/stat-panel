@@ -23,13 +23,14 @@ async function setStorage() {
 	const rt = (data.rt / 1000).toFixed(2);
 	document.getElementById("rt-storage").innerText = `Loaded in ${rt}s`;
 
+	const used = device.size - device.available;
 	document.getElementById("storage-total").innerText = b2GB(device.size);
-	document.getElementById("storage-used").innerText = b2GB(device.used);
+	document.getElementById("storage-used").innerText = b2GB(used);
 	document.getElementById("storage-free").innerText = b2GB(device.available);
 	document.getElementById("storage-name").innerText = `${device.name} (${device.vendor})`;
 	document.getElementById("storage-fs").innerText = device.fs;
 
-	const percent = ((device.used / device.size) * 100).toFixed(2);
+	const percent = ((used / device.size) * 100).toFixed(2);
 	document.getElementById("storage-percent").style.width = `${percent}%`;
 	document.getElementById("storage-percent-label").innerText = `${percent}%`;
 }
