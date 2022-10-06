@@ -1,7 +1,7 @@
-const http = require("http");
-const express = require("express");
-const si = require("systeminformation");
-const path = require("path");
+import http from "http";
+import express from "express";
+import si from "systeminformation";
+import path from "path";
 
 const app = express();
 const server = http.createServer(app);
