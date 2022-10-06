@@ -90,7 +90,14 @@ async function changeNetworkInterface(i) {
 	setNetwork(i);
 }
 
-function copyElText(id) {
+function copyElText(origin, id) {
+	origin.style.borderColor = "#4ade80";
+	origin.style.backgroundColor = "#14532d";
+	setTimeout(() => {
+		origin.style.borderColor = "";
+		origin.style.backgroundColor = "";
+	}, 800);
+
 	const text = document.getElementById(id).innerText;
 	navigator.clipboard.writeText(text);
 }
