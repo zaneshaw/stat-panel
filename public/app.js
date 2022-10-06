@@ -90,6 +90,11 @@ async function changeNetworkInterface(i) {
 	setNetwork(i);
 }
 
+function copyElText(id) {
+	const text = document.getElementById(id).innerText;
+	navigator.clipboard.writeText(text);
+}
+
 function b2GB(B) {
 	const KB = B / 1000;
 	const MB = KB / 1000;

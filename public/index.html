@@ -129,11 +129,21 @@
 					<div class="flex flex-col gap-8">
 						<div class="flex">
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline" id="network-public">-</h1>
+								<div class="flex items-center gap-2">
+									<h1 class="text-4xl font-semibold inline" id="network-public">-</h1>
+									<div class="inline-flex flex-row gap-2">
+										<img onclick="copyElText('network-public')" src="./img/copy.svg" alt="copy icon" class="p-1.5 min-w-[32px] border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-800 active:bg-neutral-700 rounded-md cursor-pointer" />
+									</div>
+								</div>
 								<h4 class="text-md text-neutral-500 leading-4">Public</h4>
 							</div>
 							<div class="grow">
-								<h1 class="text-4xl font-semibold inline" id="network-private">-</h1>
+								<div class="flex items-center gap-2">
+									<h1 class="text-4xl font-semibold inline" id="network-private">-</h1>
+									<div class="inline-flex flex-row gap-2">
+										<img onclick="copyElText('network-private')" src="./img/copy.svg" alt="copy icon" class="p-1.5 min-w-[32px] border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-800 active:bg-neutral-700 rounded-md cursor-pointer" />
+									</div>
+								</div>
 								<h4 class="text-md text-neutral-500 leading-4">Private</h4>
 							</div>
 						</div>
