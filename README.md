@@ -13,7 +13,7 @@ A NodeJS web server for monitoring basic system information in a clean, readable
 - [ ] Network interface caching
 - [ ] Live-updating stats (ram, cpu)
 - [ ] Reload button (storage, network)
-- [ ] Copy button icon (private/public ip)
+- [x] Copy button icon (private/public ip)
 
 ## Installation
 Optionally, you can download the pre-compiled release
